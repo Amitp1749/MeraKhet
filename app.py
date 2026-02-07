@@ -60,21 +60,3 @@ with st.form("enquiry_form"):
             st.write("आपका संदेश:", message)
         else:
             st.error("कृपया अपना नाम और संदेश भरें।")
-
-# 6. पूछताछ और सुझाव फॉर्म (Direct Email)
-st.write("---")
-st.header("📝 आपके सुझाव या पूछताछ")
-
-# FormSubmit के जरिए ईमेल भेजने का तरीका
-contact_form = f"""
-<form action="https://formsubmit.co/apkaemail@gmail.com" method="POST">
-     <input type="hidden" name="_next" value="{st.query_params.get('url', 'https://merakhet.streamlit.app')}">
-     <input type="text" name="name" placeholder="आपका नाम" style="width: 100%; padding: 10px; margin: 5px 0;" required>
-     <input type="email" name="email" placeholder="आपका ईमेल या फोन नंबर" style="width: 100%; padding: 10px; margin: 5px 0;" required>
-     <textarea name="message" placeholder="अपना सुझाव या सवाल यहाँ लिखें" style="width: 100%; padding: 10px; margin: 5px 0;" required></textarea>
-     <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">संदेश भेजें</button>
-</form>
-"""
-
-# इसे वेबसाइट पर दिखाने के लिए
-st.markdown(contact_form, unsafe_allow_html=True)
